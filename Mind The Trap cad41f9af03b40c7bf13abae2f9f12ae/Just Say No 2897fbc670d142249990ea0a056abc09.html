@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Just Say No</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2897fbc6-70d1-4224-9990-ea0a056abc09" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🙅</span></div><h1 class="page-title">Just Say No</h1><p class="page-description"></p></header><div class="page-body"><p id="11416c2a-30ca-4c2f-9ec2-e3028d9ddeef" class=""><mark class="highlight-gray">We are all brought to this life, all of us equal </mark><mark class="highlight-gray"><em>yet different</em></mark><mark class="highlight-gray">. That difference is what fuels our inner self. Whenever you say “Yes” to someone&#x27;s request, that difference stop to exist. You stop being yourself. You end up living on other people&#x27;s terms. Instead, say “No” and start living on your own terms.</mark></p><p id="1dfe44fc-00a9-4cee-b857-97582912d1eb" class="">
+</p><p id="eb3c76b0-2d10-48c5-857f-8c37cca5f663" class="">The so-called “peer pressure” has been the most crucial influence an individual receives in his lifetime. From our family, to our school and work - all these environments shape ourselves in some or another. Try to be Mr. Good by tolarating other’s people preferences, and you will see yourself become Mr. Nobody. Our inner power is hidden within things we refuse doing. For that very reason, the answer is simply, <strong>“No”</strong>.</p><hr id="b1a5343e-b9df-452b-9822-f09063254fce"/><h2 id="ad22032b-3cbb-411b-a3e4-37c3482d183c" class=""><strong>Drinking in Group</strong></h2><p id="a3bd1bc9-6b75-43cc-8b9b-49821fc89f4c" class="">Innately, everyone wants to socialize. We often have the need to belong somewhere. This results in sacrifications in order to become socially accepted. Although, we experience uncomfortable situations, where we were <em>somewhat </em>forced into doing things we wouldn’t otherwise.</p><p id="d611d5b8-1427-41e6-8ca7-8ccf2f844051" class="">
+</p><p id="5f987c81-38f8-4a1a-84a4-fbf3c70c60d0" class="">One of these, is <span style="border-bottom:0.05em solid">drinking beverages in a social context</span>. This culture has been promoted as normal and net-positive. Beverages they do relief social anxiety for ease communication. Just like every drug, society has reached at a level, where people <em>need to escape from reality</em>.</p><p id="22c09c84-cad1-479c-a16d-53721754de97" class="">
+</p><p id="4270022f-29f0-48cb-a299-5bb85e9f8164" class="">In order to engage into social activities, a common line has to be reached. If the majority wants to go for drinks, you feel obligated to follow. Once you are in the table, <em>it becomes more and more difficult to say “No”</em>. Options have begun to shrink. You have somehow <span style="border-bottom:0.05em solid">informally agree</span> to drink already. In case you <strong>come to terms</strong>, you will later find yourself trapped in their choices. If you decline however, you may disrespect others <em>indirectly</em>.</p><p id="50d43cc0-c53b-432d-84fe-00ff00e6922e" class=""><em>“Just a drink, do it for me” - </em>Offering something can be seen as a kind gesture, but in some cases, is a subtly <strong>forceful act</strong>. You don’t have to consent. You kindly decline and move on. People who really care about you, don’t submit you into doing things for them. <em>You are always free to decide whether you want to follow, or draw your own path.</em></p><p id="a1c57753-71a2-43ae-8115-4d5f720138af" class="">
+</p><p id="34bf2fd6-5147-4728-85e0-503e28f0514e" class=""><mark class="highlight-orange"><em>Despite this example being common, the same applies to plenty other social interactions; try to personalize it with your own experiences.</em></mark></p><hr id="e97e9901-0c91-4326-9659-53d0320e770b"/><h2 id="5ff41cab-f60c-4890-87ef-a099f2409009" class="">Helping Hand</h2><p id="dd6c5f06-fc15-4af7-a30e-a5d63a6f2297" class="">When you become a person of value, more and more people ask for your help. You seem as you have the capablity to give help away. You give a helping hand once and you become even more susceptible to them. Now they expect your helping hand regardless of your own discretion. <em>Give a helping hand and watch it out drag you down.</em></p><p id="10928eb9-a12c-41ac-96c3-99a5fe709221" class="">
+</p><p id="d0b00e9d-b851-42fb-a9b7-914419521d9d" class="">Whenever someone asks for your help, take into consideration, that they demand <span style="border-bottom:0.05em solid">your assistance at your expense</span>. Their intentions may be wholeheartedly, however, the final outcome may cause irreversible damage to you. <em>Why bother yourself with someone&#x27;s else problems or desires? Especially when the potential damage outsizes the potential return.</em></p><p id="074b8624-0f2a-46d6-b4ec-39db41d00969" class="">If everything goes well, their issue is solved. If something goes wrong, however,  they will blame you. Their issue quickly becomes your issue - which you are not even responsible for. <span style="border-bottom:0.05em solid">Avoid getting in trouble in first place, by saying “No”</span>. </p><p id="e3187d83-41a2-4c39-9968-7d42e1cd9f4c" class="">
+</p><p id="9947a30b-02cd-4389-ac33-e21d18145a78" class=""><mark class="highlight-orange"><em>Someone should not seek for your help. If you can actually help - no request is needed. Do it straight away if you wish. And certainly, </em></mark><mark class="highlight-orange"><span style="border-bottom:0.05em solid"><em>nothing in return shall be expected</em></span></mark><em><mark class="highlight-orange">. You don&#x27;t have the obligation to be available for everyone.</mark></em></p><hr id="139dae11-0a09-41a0-b47a-67396acd2a0d"/><h2 id="b4f8da08-2959-4852-a03a-2a5748910d90" class="">Friends</h2><p id="7e9b396a-44f4-4fe3-ac4b-eaa45d59b066" class="">In every phase of our life, we made out some friends. Friends that we shared our ideas, our time, our space. Friends that were along our journey. Eventually, we got emotionally attached to them. Whenever things became tricky, however, <strong><em>we found ourselves alone</em></strong>. The truth is, <span style="border-bottom:0.05em solid">most of your &quot;friends&quot; aren&#x27;t really friends</span>. They&#x27;re just buddies you fell into out of convenience. They don&#x27;t really want you to be at your best.</p><p id="ce895400-c070-4dea-8405-e6f4c06427d5" class="">
+</p><p id="4b29d323-f0be-4194-8ada-098c1338d7b4" class="">There are instances where your friends prevent you from doing things you want. Even worse, they become an obstacle. If you want to go somewhere and no one else wants to join, <em>go anyways. </em>If you want to do something, do it anyways. If you want something, go get it by yourself, <strong>anyways</strong>. <em>Nothing should stand a barrier in your path.</em></p><p id="c374a42a-6fd8-46e1-94ce-51a1319a3d87" class="">
+</p><p id="c70e65f6-4da6-495b-9597-995936ea9be8" class=""><em>Friends often agree on things to avoid arguments</em>. Highly agreeable people rarely make good friends. A true friend is not a yes-man who strokes your ego and feeds your delusions, but someone who challenges you in as much as they encourage you. Highly agreeable people fail to do the former and overdo the latter. The worst friends offer no challenge besides temporary companion. They fill up your time with their presence, and that’s all. Distracting you from your ultimate goals. <em>Rethink who your friend is and adjust </em><em><strong>accordingly</strong></em><em>.</em></p><p id="1d6b4fe8-f503-4dc0-b749-105b931a56f5" class="">
+</p><p id="088c876a-cd38-49c9-8024-b47feba404e4" class="">You need to stop listening to these people if you want to break-free. <strong>Keep your friends for friendship</strong>, don’t depend on them for any other affair. <span style="border-bottom:0.05em solid">Start saying “No” to have good friends and be one</span>.</p><p id="6d95a35c-96c7-4dbc-a50d-b169307bd3b1" class="">
+</p><p id="44c015e8-8b8a-495a-81e9-90fbe55b238a" class=""><mark class="highlight-orange"><em>I know it’s difficult, you may end up feeling isolated. You may develop a Fear Of Missing Out. Trust me, you don’t miss out on anything - probatum est.</em></mark></p><hr id="db9ea50b-43d9-4018-8ba3-26c2811c9bea"/><h2 id="4d3d98bb-f756-4c7a-88c2-b410a3a87574" class="">Family Comes Second</h2><p id="061d39ce-7c75-41ac-96b4-0a2b79b12842" class="">Undoubtely, the most strong influence roots from our inner circle - <em>our family</em>. If <em>we</em> don&#x27;t put first <em>things</em> first, <em>we</em>&#x27;<em>ll</em> wear <em>ourselves out</em> and <em>not have</em> enough <em>energy</em> or time to <em>take</em> care of <em>our</em> loved ones.</p><p id="31c40343-bf0e-4a7d-9c1f-d95519b6de35" class="">
+</p><p id="ee7960e2-fb43-4179-932d-a07d52d85c54" class="">From early age, our parents play a major role in our personal development. Whether you accept it or not, we imitate them. The way of saying things — the way of doing things, all inherited from them. Later on, siblings play their part. Such things are out of our control, we accept them quitely.</p><p id="5b51d0af-817b-4932-9c10-b0c949e95412" class="">
+</p><p id="db781a93-ed41-4792-b9f1-e903068b3868" class="">In contrast, we should focus into things that are still under our control: <em>What we give and what we take. The biggest takers are those </em>nearest<em> and </em>dearest<em> to you</em> — relatives who insist on treating you as the designated person to fulfill family <strong>duties</strong>. If you keep giving to someone who only takes and doesn&#x27;t appreciate what you are giving, you are teaching them to be a taker, not a giver. And you keep giving, until you will eventually have nothing left to give. You say &quot;Yes&quot; to them, later on you realize you betrayed yourself. This is where you start resenting them. <strong>Take care of yourself, don’t let others take from yourself.</strong></p><p id="1c2cb7c3-2a4d-4e09-9167-0df6d481b5ab" class="">
+</p><p id="5ec94507-26aa-4f5d-93a1-718086892bec" class="">Sometimes people who seem to be taking from you are simply unaware of your needs and desires because you haven&#x27;t voiced them. Make clear what you need and want. If they keep ignoring your requests and boundaries, it is time to evaluate how much you are willing to tolerate them. If is required, discard <em>emotional attachment </em>and find the courage to get them over, <em>no matter how painful this may sound.</em></p><p id="23a84339-c54a-4c28-ab97-15918972156f" class="">
+</p><p id="2643aa26-9ac3-43af-a605-be7790ec8cb0" class=""><mark class="highlight-orange"><em>On your way out, you may end up hurting your loved ones. If that’s the cost of being yourself, it’s worth every single cent. In the end, our inner peace is what matters the most.</em></mark></p><hr id="c21dbf5a-b63d-4f2c-b13a-697bcc6476e5"/><h2 id="bd74a754-d4e0-44ce-a63a-3ecf6eaf39ea" class="">Resist To Exist</h2><p id="d7883527-0e56-4f75-9b56-c86717324714" class="">All growth comes from resistance in one form or the other. After few “Yes”, you are forced to say “Yes” again and again. Focus on your own - <em>even if that harms relationships that are meant to be harmed anyways. </em>Set your boundaries and limit your social debt. Don&#x27;t let others dictate your life. It is always better to regret your own decisions that those inflicted by others.</p><p id="be7b6587-f5c2-4a8a-a22a-32b8988d86cd" class="">
+</p><p id="76dc5b5e-74e1-4ce7-a321-e7cb2b5cf0cc" class="">And remember: <strong>Never stop being exactly who you are, even if it pushes everyone away.</strong>
+Better to be authentic and alone than fake and surrounded by all the wrong people.</p><p id="f2a5891f-da1b-4c11-bb1b-78ee00c4d9a1" class="">
+</p><blockquote id="6df40851-5895-4836-874d-08143a877a6f" class=""><em>Introverts, learn to say no without feeling guilty. Takers have no limits. They&#x27;ll take and take and take until you&#x27;re empty. Love yourself. Protect your energy.  And stay away from things that drain you. I know how it feels to say &quot;no&quot; and then overthink about it. It&#x27;s not you, it&#x27;s the fear inside talking.You have a good heart. That&#x27;s why you feel like that. 
+
+The right people will understand your reasons without a word spoken. So, listen to your body and just say no when it tells you to. And trust me, it&#x27;s okay. —@master_nobody</em></blockquote><p id="33102d38-2702-42cc-888f-f9b89b0b6873" class="">
+</p><p id="12106208-a82f-4674-9def-773d430216c6" class=""><em><strong>Saying “No” to others, is saying “Yes” to yourself.</strong></em></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
